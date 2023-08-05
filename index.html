@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hash Encoder/Decoder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container my-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="encode-tab" data-toggle="tab" href="#encode" role="tab" aria-controls="encode" aria-selected="true">Encode</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="decode-tab" data-toggle="tab" href="#decode" role="tab" aria-controls="decode" aria-selected="false">Decode</a>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="soon-tab" data-toggle="tab" href="#soon" role="tab" aria-controls="soon" aria-selected="false">Soon More</a>
+                </li>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade" id="soon" role="tabpanel" aria-labelledby="soon-tab">
+                <!-- Pusta zawartość -->
+            </div>
+            <div class="tab-pane fade show active" id="encode" role="tabpanel" aria-labelledby="encode-tab">
+                <div class="form-group mt-4">
+                    <label for="algorithmSelect">Select Algorithm:</label>
+                    <select id="algorithmSelect" class="form-control">
+                        <option value="md5">MD5</option>
+                        <option value="sha1">SHA-1</option>
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha512">SHA-512</option>
+                        <option value="sha3">SHA-3</option>
+                        <option value="sha384">SHA-384 - Soon</option> 
+                        <option value="custom">Random Algorithm - Soon</option>
+                    </select>
+                </div>
+
+                <div id="customAlgorithmDiv" style="display: none;" class="form-group">
+                    <label for="customAlgorithmInput">Custom Algorithm:</label>
+                    <input type="text" id="customAlgorithmInput" class="form-control" placeholder="Enter custom algorithm">
+                </div>
+                <div class="form-group">
+                    <label for="encodeInput">Text to Encode:</label>
+                    <input type="text" id="encodeInput" class="form-control" placeholder="Enter text to encode">
+                </div>
+                <button id="encodeButton" class="btn btn-primary">Encode</button>
+                <button id="clearEncodeButton" class="btn btn-secondary">Clear Encode</button>
+                <button id="copyEncodedButton" class="btn btn-success" data-clipboard-target="#encodedResult">Copy Encoded</button>
+                <div class="form-group mt-4">
+                    <label for="encodedResult">Encoded Result:</label>
+                    <textarea id="encodedResult" class="form-control" readonly></textarea>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="decode" role="tabpanel" aria-labelledby="decode-tab">
+                <div class="form-group mt-4">
+                    <label for="algorithmSelectDecode">Select Algorithm:</label>
+                    <select id="algorithmSelectDecode" class="form-control">
+                        <option value="md5">MD5</option>
+                        <option value="sha1">SHA-1</option>
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha512">SHA-512</option>
+                        <option value="sha3">SHA-3</option>
+                        <option value="sha384">SHA-384 - Soon</option> 
+                        <option value="custom">Random Algorithm - Soon</option>
+                    </select>
+                </div>
+                <div id="customAlgorithmDivDecode" style="display: none;" class="form-group">
+                    <label for="customAlgorithmInputDecode">Custom Algorithm:</label>
+                    <input type="text" id="customAlgorithmInputDecode" class="form-control" placeholder="Enter custom algorithm">
+                </div>
+                <div class="form-group">
+                    <label for="decodeInput">Encoded Text to Decode:</label>
+                    <input type="text" id="decodeInput" class="form-control" placeholder="Enter encoded text to decode">
+                </div>
+                <button id="decodeButton" class="btn btn-primary">Decode</button>
+                <button id="clearDecodeButton" class="btn btn-secondary">Clear Decode</button>
+                <button id="copyDecodedButton" class="btn btn-success" data-clipboard-target="#decodedResult">Copy Decoded</button>
+                <div class="form-group mt-4">
+                    <label for="decodedResult">Decoded Result:</label>
+                    <textarea id="decodedResult" class="form-control" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-md5/0.7.3/md5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha384/2.0.2/sha384.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
